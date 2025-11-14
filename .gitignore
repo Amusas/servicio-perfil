@@ -1,0 +1,90 @@
+# ============================================
+#      PYTHON BASICS
+# ============================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales
+venv/
+.env/
+.venv/
+env/
+ENV/
+
+# Archivos de logs
+*.log
+
+# Archivos de compilación
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Archivos de configuración generados
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ============================================
+#      FASTAPI / UVICORN
+# ============================================
+# archivos generados por pycache al correr el servidor
+*.pid
+
+# ============================================
+#      PYTEST / COVERAGE
+# ============================================
+.pytest_cache/
+.coverage
+htmlcov/
+.cache/
+
+# ============================================
+#      JUPYTER NOTEBOOKS
+# ============================================
+.ipynb_checkpoints/
+*.ipynb
+# Si quieres mantener notebooks, borra la línea de *.ipynb
+
+# ============================================
+#      IDEs
+# ============================================
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+# ============================================
+#      DOCKER
+# ============================================
+# Evitar archivos generados por contenedores
+*.pid
+*.seed
+*.manifest
+
+# No ignorar Dockerfile ni docker-compose.yml
+# (solo si los usas)
+# Docker Volumes locales
+docker-data/
+data/
+pgdata/
+kafka_data/
+
+# ============================================
+#      SISTEMA / SO
+# ============================================
+*.DS_Store
+Thumbs.db
+
+# ============================================
+#      SECRETOS
+# ============================================
+# Evitar subir tus variables de entorno
+*.env
+.env.local
+.env.*.local
+credentials.json
+secrets.json
+*.pem
+*.key
