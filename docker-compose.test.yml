@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  # Pruebas unitarias
+  profile-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    container_name: profile-tests
+    environment:
+      DB_HOST: localhost
+      DB_PORT: 5432
+      DB_USER: test_user
+      DB_PASSWORD: test_password
+      DB_NAME: test_db
+      PUBLIC_KEY_PATH: /tmp/test_public_key.pem
+      PORT: 8087
+    command: pytest -v --tb=short
+    volumes:
+      - .:/app
+
+  # Pruebas con cobertura
+  profile-coverage:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    container_name: profile-coverage
+    environment:
+      DB_HOST: localhost
+      DB_PORT: 5432
+      DB_USER: test_user
+      DB_PASSWORD: test_password
+      DB_NAME: test_db
+      PUBLIC_KEY_PATH: /tmp/test_public_key.pem
+      PORT: 8087
+    command: pytest --cov=. --cov-report=html --cov-report=term
+    volumes:
+      - .:/app
+      - ./htmlcov:/app/htmlcov
